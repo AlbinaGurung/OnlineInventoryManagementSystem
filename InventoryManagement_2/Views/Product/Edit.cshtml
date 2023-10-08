@@ -1,0 +1,29 @@
+﻿@using InventoryManagement_2.ViewModels
+@model InventoryManagement_2.ViewModels.ProductEditVm
+<form  method="post">
+<div class="row">
+<div class="col-4">
+    <div class="card">
+        <div class="card-body">
+
+                    
+    <label asp-for="Name"></label>
+    <input asp-for="Name" type="text" class="form-control">
+    <span asp-validation-for="Name" class="text-danger"></span>
+
+     <label asp-for="Price"></label>
+    <input asp-for="Price" type="text" class="form-control">
+    <span asp-validation-for="Price" class="text-danger"></span>
+
+    
+
+     <div class="form-group">
+      <button class="btn btn-submit" type="submit">Save</button>
+       </div>
+     </div>
+     </div>
+     </div>
+     </div>
+   
+</form>
+

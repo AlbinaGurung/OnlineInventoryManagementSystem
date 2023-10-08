@@ -1,0 +1,32 @@
+﻿@model InventoryManagement_2.ViewModels.ProductAddVm
+
+<form method="post">
+    <div class="row">
+        <div class="cols-3">
+            <label asp-for="Id"></label>
+            <input type="number" asp-for="Id">
+            <span asp-validation-for="Id" class="text-danger"></span>
+
+            <label asp-for="Name"></label>
+            <input type="text" asp-for="Name">
+            <span asp-validation-for="Name" class="text-danger"></span>
+             
+             <label asp-for="Id"></label>
+             
+
+             <select asp-for="CategoryId" class="form-control" asp-items="@Model.CategoryOptionSelectList()" >
+                    <option value="">-- SELECT A CATEGORY --</option>
+                </select>
+
+
+            <label asp-for="Price"></label>
+            <input type="number" asp-for="Price">
+            <span asp-validation-for="Price" class="text-danger"></span>
+
+           
+
+            <button type="submit" class="btn btn-success">Save</button>
+            <a asp-controller="Product" asp-action="Index" class="btn btn-primary">Back</a>
+        </div>
+    </div>
+</form>

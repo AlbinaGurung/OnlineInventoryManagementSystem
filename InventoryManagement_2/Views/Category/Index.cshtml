@@ -1,0 +1,29 @@
+﻿@model InventoryManagement_2.ViewModels.CategorySearchVm
+<div >
+    <div class="row">
+        <div class="col-8">
+            <form>
+                <input type="text" asp-for="Name" placeholder="search">
+            </form>
+            <a  asp-controller="Category" asp-action="Add" class="btn btn-success">New Category</a>
+            <<br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach(var cat in Model.Categories)
+                {
+                <tr>
+                <td>@cat.Id</td>
+                <td>@cat.Name</td>
+                </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
