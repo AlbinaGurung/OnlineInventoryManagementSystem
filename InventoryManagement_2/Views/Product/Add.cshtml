@@ -1,32 +1,48 @@
-﻿@model InventoryManagement_2.ViewModels.ProductAddVm
+﻿@model InventoryManagement_2.ViewModels.ProductAddVm;
 
-<form method="post">
-    <div class="row">
-        <div class="cols-3">
-            <label asp-for="Id"></label>
-            <input type="number" asp-for="Id">
-            <span asp-validation-for="Id" class="text-danger"></span>
+</div>
+<div class="card bg-light mb-3" style="max-width: 20rem;">
+  <div class="card-header">Add New Item</div>
+  <div class="card-body">
+    <form action="" method="post">
+      <h4 class="card-title">Light card title</h4>
+      <div class="mb-3 ">
+        <label asp-for="Id"></label>
+        <input type="number" asp-for="Id" class="form-control">
+        <span asp-validation-for="Id" class="text-danger"></span>
+      </div>
 
-            <label asp-for="Name"></label>
-            <input type="text" asp-for="Name">
-            <span asp-validation-for="Name" class="text-danger"></span>
-             
-             <label asp-for="Id"></label>
-             
-
-             <select asp-for="CategoryId" class="form-control" asp-items="@Model.CategoryOptionSelectList()" >
-                    <option value="">-- SELECT A CATEGORY --</option>
-                </select>
+      <div class="mb-3 ">
+        <label asp-for="Name"></label>
+        <input type="text" asp-for="Name" class="form-control">
+        <span asp-validation-for="Name" class="text-danger"></span>
+      </div>
 
 
-            <label asp-for="Price"></label>
-            <input type="number" asp-for="Price">
-            <span asp-validation-for="Price" class="text-danger"></span>
+      <div class="mb-3 ">
+        <label asp-for="CategoryId"></label>
+        <select asp-for="CategoryId" class="form-control" asp-items="@Model.CategoryOptionSelectList()">
+          <option value="">-- SELECT A CATEGORY --</option>
+        </select>
+      </div>
 
-           
+      <div class="mb-3 ">
+        <label asp-for="UnitId"></label>
+        <select asp-for="UnitId" class="form-control" asp-items="@Model.UnitsOptionsSelectList()">
+          <option value="">--SELECT A UNIT</option>
+        </select>
+        <span asp-validation-for="UnitId" class="text-danger"></span>
+      </div>
 
-            <button type="submit" class="btn btn-success">Save</button>
-            <a asp-controller="Product" asp-action="Index" class="btn btn-primary">Back</a>
-        </div>
-    </div>
-</form>
+      <div class="mb-3">
+        <label asp-for="Price"></label>
+        <input type="number" asp-for="Price" class="form-control">
+        <span asp-validation-for="Price" class="text-danger"></span>
+      </div>
+    </form>
+  </div>
+
+  <div class="card-footer">
+    <button class="btn btn-success" type="submit">Save</button>
+  </div>
+</div>

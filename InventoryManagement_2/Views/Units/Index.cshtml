@@ -1,0 +1,37 @@
+@* @model InventoryManagement_2.ViewModels.CategorySearchVm *@
+
+    <div class="row">
+        
+           
+            <a  asp-controller="Category" asp-action="Add" class="btn btn-success">New Unit</a>
+            <<br>
+            <table class="table table-stripped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @* @foreach(var cat in Model.Categories)
+                {
+                <tr>
+                <td>@cat.Id</td>
+                <td>@cat.Name</td>
+                </tr>
+                } *@
+                
+                <tr>
+                <td>1</td>
+                <td>Kg</td>
+                </tr>
+                <tr>
+                <td>2</td>
+                <td>dozen</td>
+                </tr>
+               
+                </tbody>
+            </table>
+       
+    </div>
+

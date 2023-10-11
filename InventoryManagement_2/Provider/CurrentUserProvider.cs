@@ -34,8 +34,8 @@ public class CurrentUserProvider : ICurrentUserProvider
         return Convert.ToInt64(userId);
     }
 
-    Task<Users?> ICurrentUserProvider.GetCurrentUser()
-    {
-        throw new NotImplementedException();
-    }
+    // Task<Users?> ICurrentUserProvider.GetCurrentUser()
+    // {
+    //     throw new NotImplementedException();
+    // }
 }

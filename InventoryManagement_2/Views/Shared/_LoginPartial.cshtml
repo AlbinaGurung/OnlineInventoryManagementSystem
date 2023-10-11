@@ -1,0 +1,16 @@
+@using InventoryManagement_2.Provider.Interface
+@inject ICurrentUserProvider _CurrentUserProvider
+@{
+    var currentUser = await _CurrentUserProvider.GetCurrentUser();
+}
+@if (_CurrentUserProvider.IsLoggedIn())
+{
+    <div class="d-flex gap-2 align-items-center justify-content-center">
+        <span>
+         @currentUser.Name
+        </span>
+        <a asp-controller="Auth" asp-action="Logout" class="btn btn-danger">
+            Logout
+        </a>
+    </div>
+}

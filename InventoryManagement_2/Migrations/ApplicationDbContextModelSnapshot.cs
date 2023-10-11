@@ -91,9 +91,14 @@ namespace InventoryManagement_2.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
+                    b.Property<int>("UnitId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("UnitId");
 
                     b.ToTable("in_prod");
                 });
@@ -156,6 +161,53 @@ namespace InventoryManagement_2.Migrations
                     b.ToTable("inv_salesDetails");
                 });
 
+            modelBuilder.Entity("InventoryManagement_2.Models.Stock", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UnitId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("UnitId");
+
+                    b.ToTable("Stock");
+                });
+
+            modelBuilder.Entity("InventoryManagement_2.Models.Units", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Unit");
+                });
+
             modelBuilder.Entity("InventoryManagement_2.Models.Product2", b =>
                 {
                     b.HasOne("InventoryManagement_2.Models.Category", "Category")
@@ -164,7 +216,15 @@ namespace InventoryManagement_2.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("InventoryManagement_2.Models.Units", "Unit")
+                        .WithMany()
+                        .HasForeignKey("UnitId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Category");
+
+                    b.Navigation("Unit");
                 });
 
             modelBuilder.Entity("InventoryManagement_2.Models.SalesDetails", b =>
@@ -184,6 +244,25 @@ namespace InventoryManagement_2.Migrations
                     b.Navigation("Product");
 
                     b.Navigation("Sales");
+                });
+
+            modelBuilder.Entity("InventoryManagement_2.Models.Stock", b =>
+                {
+                    b.HasOne("InventoryManagement_2.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("InventoryManagement_2.Models.Units", "Unit")
+                        .WithMany()
+                        .HasForeignKey("UnitId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Unit");
                 });
 
             modelBuilder.Entity("InventoryManagement_2.Models.Sales", b =>

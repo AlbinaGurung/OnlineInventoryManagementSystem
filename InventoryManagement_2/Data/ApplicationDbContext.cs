@@ -18,5 +18,8 @@ namespace InventoryManagement_2.Data
        public DbSet<Sales>? Sales { get; set; }
 
         public DbSet<SalesDetails>? SalesDetails { get; set; }
+
+        public DbSet<Units>? Unit{get;set;}
+        public DbSet<Stock>? Stock{get;set;}
     }
 }

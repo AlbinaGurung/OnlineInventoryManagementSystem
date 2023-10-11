@@ -20,30 +20,7 @@ namespace InventoryManagement_2.Controllers
             _context = context;
         }
 
-        readonly List<Product> ProductList = new(){
-            new Product()
-            {
-                ProductName = "Sprite",
-                ProductId = 1,
-                ProductDescription = "drinks",
-                Price = 500
-            },
-            new Product()
-            {
-                ProductName = "Coke",
-                ProductId = 2,
-                ProductDescription = "drinks",
-                Price = 200
-            },
-            new Product()
-            {
-                ProductName = "Fanta",
-                ProductId = 3,
-                ProductDescription = "drinks",
-                Price = 300
-            },
-          };
-
+      
 
         public async Task<IActionResult> Index(string? search = null)
         {
@@ -89,7 +66,8 @@ namespace InventoryManagement_2.Controllers
                         
                         Price=vm.Price,
                         Name=vm.Name,
-                        CategoryId=vm.CategoryId
+                        CategoryId=vm.CategoryId,
+                        UnitId=vm.UnitId
                     };
 
                     _context.Units?.Add(item);

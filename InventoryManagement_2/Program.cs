@@ -22,7 +22,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 //new
 builder.Services.AddControllers();
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddScoped<DbContext, ApplicationDbContext>();

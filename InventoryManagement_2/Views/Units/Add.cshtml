@@ -1,0 +1,27 @@
+
+@model InventoryManagement_2.ViewModels.UnitAddVm
+<div class="row">
+ <div class="cols-4">
+<form method="post" class="card">
+    <div class="card-header">
+        <h2>Add New Unit</h2>
+    </div>
+           <div class="card-body">
+             <div class="form-group">
+            <label asp-for="Name"></label>
+            <input type="text" asp-for="Name">
+            <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            </div>
+
+
+    <div class="card-footer">
+       <button type="submit" class="btn btn-success">Save</button>
+        <a asp-controller="Units" asp-action="Index" class="btn btn-primary">Back</a> 
+    </div>
+            
+
+       
+</form>
+ </div>
+  </div>
