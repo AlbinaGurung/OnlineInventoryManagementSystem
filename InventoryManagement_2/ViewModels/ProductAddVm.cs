@@ -8,11 +8,12 @@ namespace InventoryManagement_2.ViewModels
 {
     public class ProductAddVm
     {
-       public int Id { get; set; }
+      public int Id{get;set;}
        public String? Name { get; set; }
         
         public int Price { get; set; }
         public int UnitId{get;set;}
+        [ValidateNever]
         public List<Units> Unit{get;set;}
         public int CategoryId {get; set;}
         [ValidateNever]

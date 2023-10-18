@@ -1,14 +1,14 @@
 ﻿@model InventoryManagement_2.ViewModels.ProductAddVm;
 
-</div>
-<div class="card bg-light mb-3" style="max-width: 20rem;">
-  <div class="card-header">Add New Item</div>
+
+<div class="card bg-light mb-4" style="max-width: 25rem;">
+  <div class="card-header ">Add New Item</div>
   <div class="card-body">
-    <form action="" method="post">
-      <h4 class="card-title">Light card title</h4>
+    <form method="post">
+
       <div class="mb-3 ">
         <label asp-for="Id"></label>
-        <input type="number" asp-for="Id" class="form-control">
+        <input type="text" asp-for="Id" class="form-control">
         <span asp-validation-for="Id" class="text-danger"></span>
       </div>
 
@@ -39,10 +39,9 @@
         <input type="number" asp-for="Price" class="form-control">
         <span asp-validation-for="Price" class="text-danger"></span>
       </div>
+      <div class="card-footer">
+        <button class="btn btn-success" type="submit">Save</button>
+        <a asp-controller="Product" asp-action="Index" class="btn btn-primary">Back</a>
+      </div>
     </form>
   </div>
-
-  <div class="card-footer">
-    <button class="btn btn-success" type="submit">Save</button>
-  </div>
-</div>

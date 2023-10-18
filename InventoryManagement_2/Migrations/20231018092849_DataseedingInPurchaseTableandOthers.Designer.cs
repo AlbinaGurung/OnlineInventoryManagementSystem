@@ -4,6 +4,7 @@ using InventoryManagement_2.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InventoryManagement_2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231018092849_DataseedingInPurchaseTableandOthers")]
+    partial class DataseedingInPurchaseTableandOthers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -126,6 +129,15 @@ namespace InventoryManagement_2.Migrations
                     b.HasIndex("SuppliersId");
 
                     b.ToTable("Purchases");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            PurchaseDate = new DateTime(2023, 10, 18, 2, 28, 19, 863, DateTimeKind.Local).AddTicks(9096),
+                            SuppliersId = 1,
+                            TotalAmount = 7500m
+                        });
                 });
 
             modelBuilder.Entity("InventoryManagement_2.Models.PurchaseDetails", b =>
@@ -135,9 +147,6 @@ namespace InventoryManagement_2.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
@@ -151,23 +160,27 @@ namespace InventoryManagement_2.Migrations
                     b.Property<decimal>("TotalAmount")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("UnitId")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("quantity")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
-
                     b.HasIndex("ProductId");
 
                     b.HasIndex("PurchaseId");
 
-                    b.HasIndex("UnitId");
-
                     b.ToTable("PurchaseDetails");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ProductId = 10,
+                            PurchaseId = 1,
+                            Rate = 50m,
+                            TotalAmount = 7500m,
+                            quantity = 150m
+                        });
                 });
 
             modelBuilder.Entity("InventoryManagement_2.Models.Sales", b =>
@@ -272,6 +285,13 @@ namespace InventoryManagement_2.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Suppliers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Tanuja"
+                        });
                 });
 
             modelBuilder.Entity("InventoryManagement_2.Models.Units", b =>
@@ -288,6 +308,13 @@ namespace InventoryManagement_2.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Unit");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Piece"
+                        });
                 });
 
             modelBuilder.Entity("InventoryManagement_2.Models.Product2", b =>
@@ -322,37 +349,21 @@ namespace InventoryManagement_2.Migrations
 
             modelBuilder.Entity("InventoryManagement_2.Models.PurchaseDetails", b =>
                 {
-                    b.HasOne("InventoryManagement_2.Models.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
                     b.HasOne("InventoryManagement_2.Models.Product2", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("InventoryManagement_2.Models.Purchase", "Purchase")
                         .WithMany()
                         .HasForeignKey("PurchaseId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("InventoryManagement_2.Models.Units", "Unit")
-                        .WithMany()
-                        .HasForeignKey("UnitId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Category");
 
                     b.Navigation("Product");
 
                     b.Navigation("Purchase");
-
-                    b.Navigation("Unit");
                 });
 
             modelBuilder.Entity("InventoryManagement_2.Models.SalesDetails", b =>

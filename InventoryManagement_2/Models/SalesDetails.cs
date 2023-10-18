@@ -8,11 +8,6 @@ namespace InventoryManagement_2.Models
     {
         [Key]
         public long Id { get; set; }
-       
-       
-
-       
-
         public long quantity { get; set; }
 
         public decimal Rate { get; set; }

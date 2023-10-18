@@ -4,6 +4,7 @@ namespace InventoryManagement_2.ViewModels;
 
 public class UnitAddVm
 {
-    public String Name;
+   public int Id{get;set;}
+    public String Name{get;set;}
 
 }

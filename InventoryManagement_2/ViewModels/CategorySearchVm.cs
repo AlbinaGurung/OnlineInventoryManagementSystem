@@ -7,6 +7,7 @@ namespace InventoryManagement_2.ViewModels
 public class CategorySearchVm
 {
 public string? Name;
-public List<Category> Categories;
+public string? search;
+public List<Category> data;
 }
 }

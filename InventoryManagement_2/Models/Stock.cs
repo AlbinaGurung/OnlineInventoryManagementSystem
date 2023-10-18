@@ -7,6 +7,7 @@ public class Stock
     [Key]
 public int Id{get;set;}
 public string Name{get;set;}
+
 public int Quantity{get;set;}
 public int UnitId{get;set;}
 public virtual Units Unit{get;set;}

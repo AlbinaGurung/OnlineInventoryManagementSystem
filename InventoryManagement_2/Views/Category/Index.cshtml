@@ -1,29 +1,38 @@
 ﻿@model InventoryManagement_2.ViewModels.CategorySearchVm
 
-    <div class="row">
-        
-            <form>
-                <input type="text" asp-for="Name" placeholder="search">
-            </form>
-            <a  asp-controller="Category" asp-action="Add" class="btn btn-success">New Category</a>
-            <<br>
-            <table class="table table-stripped">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                @foreach(var cat in Model.Categories)
-                {
-                <tr>
-                <td>@cat.Id</td>
-                <td>@cat.Name</td>
-                </tr>
-                }
-                </tbody>
-            </table>
-       
+<div class="Card">
+    <div class="Card-header">
+        <form method="get">
+            <input type="text" id="searchid" name="search" placeholder="search">
+            <button class="btn btn-sucess" type="submit">Search</button>
+        </form>
+        <a asp-controller="Category" asp-action="Add" class="btn btn-success">New Category</a>
     </div>
-
+    <div class="card-body">
+        <table class="table table-stripped">
+            <thead>
+                <tr>
+                    <th>SN</th>
+                    <th>Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int SN = 1;
+                    foreach (var cat in Model.data)
+                    {
+                        <tr>
+                            <td>@(SN++)</td>
+                            <td>@cat.Name</td>
+                            <td><a asp-controller="Category" asp-action="Edit" asp-route-id="@cat.Id" class="btn btn-primary">Edit</a>
+                                <a asp-controller="Category" asp-action="Delete" asp-route-id="@cat.Id" class="btn btn-danger"
+                                    onclick="return confirm('Do you really want to delete it?')">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

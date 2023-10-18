@@ -1,40 +1,42 @@
-﻿
-@{
-    ViewData["Title"] = "Delete";
-}
+﻿@using InventoryManagement_2.ViewModels
+@model InventoryManagement_2.ViewModels.ProductDeleteVm
+<form method="post">
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                <h1>Delete Product</h1>
+                </div>
+                <div class="card-body">
 
-<h1>Delete</h1>
-@using InventoryManagement_2.ViewModels
-@model InventoryManagement_2.ViewModels.ProductEditVm
-<form  method="post">
-<div class="row">
-<div class="col-4">
-    <div class="card">
-        <div class="card-body">
+                    <label asp-for="Id"></label>
+                    <input asp-for="Id" type="text" class="form-control" readonly>
+                    <span asp-validation-for="Id" class="text-danger"></span>
 
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" type="text" class="form-control" readonly>
+                    <span asp-validation-for="Name" class="text-danger"></span>
 
-             <label asp-for="Name"></label>
-    <input asp-for="Name" type="text" class="form-control">
-    <span asp-validation-for="Name" class="text-danger"></span>
-                    
-    <label asp-for="Name"></label>
-    <input asp-for="Name" type="text" class="form-control">
-    <span asp-validation-for="Name" class="text-danger"></span>
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" type="text" class="form-control" readonly>
+                    <span asp-validation-for="Name" class="text-danger"></span>
 
-     <label asp-for="Price"></label>
-    <input asp-for="Price" type="text" class="form-control">
-    <span asp-validation-for="Price" class="text-danger"></span>
+                    <label asp-for="Price"></label>
+                    <input asp-for="Price" type="text" class="form-control" readonly>
+                    <span asp-validation-for="Price" class="text-danger"></span>
 
-    
+                    <label asp-for="UnitId"></label>
+                    <input asp-for="UnitId" type="text" class="form-control" readonly>
+                    <span asp-validation-for="UnitId" class="text-danger"></span>
 
-     <div class="form-group">
-      <button class="btn btn-danger" type="submit">Delete</button>
-       </div>
-     </div>
-     </div>
-     </div>
-     </div>
-   
+                    <div class="card-footer">
+                    <div class="form-group">
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                    </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+
 </form>
-
-

@@ -6,7 +6,7 @@ namespace InventoryManagement_2.Models
     {
 
         public int Id { get; set; }
-        public String? Name { get; set; }
+        public String Name { get; set; }
 
 
 

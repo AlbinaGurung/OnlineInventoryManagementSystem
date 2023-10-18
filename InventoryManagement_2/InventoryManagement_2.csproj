@@ -7,6 +7,10 @@
     <UserSecretsId>aspnet-InventoryManagement_2-72812f21-54f4-44b7-a6ed-d649b68c8000</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="Views\Units\Edit.cshtml" />
+  </ItemGroup>
+
  
 
   <ItemGroup>
@@ -30,6 +34,7 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Views\Shared\public.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Units\Edit.cshtml" />
   </ItemGroup>
 
  
@@ -37,6 +42,18 @@
   <ItemGroup>
     <Folder Include="wwwroot\AdminAssets\" />
     <Folder Include="wwwroot\LoginAssets\" />
+  </ItemGroup>
+
+ 
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Units\Edit.cshtml" />
+  </ItemGroup>
+
+ 
+
+  <ItemGroup>
+    <None Include="Views\Units\Edit.cshtml" />
   </ItemGroup>
 
  

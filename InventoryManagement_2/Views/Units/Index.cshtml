@@ -1,37 +1,42 @@
-@* @model InventoryManagement_2.ViewModels.CategorySearchVm *@
+@model InventoryManagement_2.ViewModels.UnitSearchVm
+<div class="card">
 
-    <div class="row">
-        
-           
-            <a  asp-controller="Category" asp-action="Add" class="btn btn-success">New Unit</a>
-            <<br>
-            <table class="table table-stripped">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                @* @foreach(var cat in Model.Categories)
-                {
-                <tr>
-                <td>@cat.Id</td>
-                <td>@cat.Name</td>
-                </tr>
-                } *@
-                
-                <tr>
-                <td>1</td>
-                <td>Kg</td>
-                </tr>
-                <tr>
-                <td>2</td>
-                <td>dozen</td>
-                </tr>
-               
-                </tbody>
-            </table>
-       
+    <div class="card-header">
+       <form method="get">
+            <input type="Text" id="searchid" name="search" />
+            <button type="submit">Search</button>
+        </form>
+        <a asp-controller="Units" asp-action="Add" class="btn btn-success">New Unit</a>
     </div>
 
+    <div class="card-body">
+        <table class="table table-stripped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int SN = 1;
+                    foreach (var x in Model.data)
+                    {
+                        <tr>
+                            <td>@(SN++)</td>
+                            <td>@x.Name</td>
+                            @* <td><a  asp-action="Edit" asp-route-Id="@x.Id" class="btn btn-primary">Edit</a> *@
+                            <td>
+                                <a asp-controller="Units" asp-action="Edit" asp-route-id="@x.Id" class="btn btn-primary">Edit</a>
+                                <a asp-controller="Units" asp-action="Delete" asp-route-id="@x.Id" class="btn btn-danger"
+                                    onclick="return confirm('Do you really want to delete it?')">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>

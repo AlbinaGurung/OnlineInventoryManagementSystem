@@ -1,14 +1,13 @@
 ﻿using InventoryManagement_2.Data;
 using InventoryManagement_2.Manager;
 using Microsoft.AspNetCore.Mvc;
-namespace InventoryManagement_2.Controllers;
-
 using AspNetCoreHero.ToastNotification.Abstractions;
 using InventoryManagement_2.Entity;
 using InventoryManagement_2.Manager.Interfaces;
 using InventoryManagement_2.ViewModels;
 using InventoryManagement_2.ViewModels.Auth;
 using Microsoft.AspNetCore.Authorization;
+namespace InventoryManagement_2.Controllers;
 
 
 [AllowAnonymous]
