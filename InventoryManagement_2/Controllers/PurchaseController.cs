@@ -46,4 +46,12 @@ public async Task<IActionResult> Edit()
 {
     return View();
 }
+public async Task<IActionResult> Add()
+{
+    PurchaseAddVm vm=new PurchaseAddVm();
+ vm.Categories = _context.Categories.ToList();
+            vm.Unit = _context.Unit.ToList();
+            vm.Product=_context.Units.ToList();
+    return  View(vm);
+}
 }
