@@ -1,0 +1,135 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = InventoryManagement_2
+build_property.RootNamespace = InventoryManagement_2
+build_property.ProjectDir = /Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = /Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/DashBoard/Views/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = RGFzaEJvYXJkL1ZpZXdzL0hvbWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Auth/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aC9Mb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Auth/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aC9SZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Category/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0ZWdvcnkvQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Category/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0ZWdvcnkvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Category/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0ZWdvcnkvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Home/TestDBconnection.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9UZXN0REJjb25uZWN0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Product/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9BZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Product/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Product/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Product/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Purchase/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHVyY2hhc2UvQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Purchase/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHVyY2hhc2UvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Purchase/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHVyY2hhc2UvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/PurchaseDetails/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHVyY2hhc2VEZXRhaWxzL0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/PurchaseDetails/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHVyY2hhc2VEZXRhaWxzL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Sales/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2FsZXMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Shared/public.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL3B1YmxpYy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Stock/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3RvY2svSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Units/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVW5pdHMvQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Units/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVW5pdHMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Downloads/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-b7zr84dd8v

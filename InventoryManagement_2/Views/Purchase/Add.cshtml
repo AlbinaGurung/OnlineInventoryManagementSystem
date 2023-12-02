@@ -1,0 +1,187 @@
+@model InventoryManagement_2.ViewModels.PurchaseAddVm
+
+<div>
+    <div class="card mb-3">
+        <h1 class="text-primary bg-light ">New Purchase</h1>
+    </div>
+    <div class="card mb-3 ">
+        <div class="card-body">
+            <div class="row">
+
+                <div class="mb-3">
+                    <label asp-for="SupplierId"></label>
+                    <input type="text" class="form-control-sm">
+                </div>
+                <div class="mb-3">
+                    <label for="Address">Address</label>
+                    <input type="text" class="form-control-sm">
+                </div>
+                <div class="mb-3">
+                    <label asp-for="TransactionDate"></label>
+                    <input type="Date" class="form-control-sm">
+                </div>
+                <div class="mb-3">
+                    <label for="Remarks">Remarks</label>
+                    <textarea name="" id="" cols="35" rows="4"></textarea>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="card mb-3">
+        <div class="row">
+            <div class="col-3">
+                <label asp-for="ProductId" id="f_product"></label>
+                <select asp-for="ProductId" class="form-control-sm" asp-items="@Model.ProductsOptionsSelectList()">
+                    <option value="">--select--</option>
+                </select>
+                <span asp-validation-for="ProductId" class="text-danger"></span>
+                <p id='name'></p>
+            </div>
+            <div class="col-3">
+                <Label for="Rate">Rate</Label>
+                <input type="text" class="form-control-sm" id="f_rate" required>
+            </div>
+            <div class="col-3">
+                <Label for="Quantity">Quantity</Label>
+                <input type="text" class="form-control-sm" id="f_quantity" required>
+            </div>
+            <div class="col-3">
+                <Label for="Discount">Discount</Label>
+                <input type="text" class="form-control-sm" id="f_discount" required>
+            </div>
+
+        </div>
+        <div class="col-3">
+            <Label for="Amount">Amount</Label>
+            <input type="text" class="form-control-sm" id="f_amount" required>
+        </div>
+        <div class="col-3">
+            <button class="btn btn-primary " id="Add" type="button">Add</button>
+        </div>
+
+    </div>
+
+    <div class="card">
+        <table class="table table-stripped table-bordered table-hover">
+            <thead>
+                <th>Product Name</th>
+                <th>Qty</th>
+                <th>Rate</th>
+                <th>Discount</th>
+
+
+                <th>Amount</th>
+                <th>Action</th>
+
+            </thead>
+            <tbody id="item_list"></tbody>
+        </table>
+    </div>
+
+
+    </div>
+    <template id="item_row">
+        <tr>
+            <td>
+                <span class="i_name"></span>
+                <span class="i_data_hub" data-product-id="" data-quantity="" data-rate="" data-discount=""></span>
+            </td>
+            <td>
+                <span class="i_quantity"></span>
+
+            </td>
+            <td>
+                <span class="i_rate"></span>
+            </td>
+            <td>
+                <span class="i_discount"></span>
+            </td>
+
+            <td>
+                <span class="i_amount"></span>
+            </td>
+            <td>
+                <button class="btn btn-danger i_remove">
+                    Remove!
+                </button>
+            </td>
+        </tr>
+    </template>
+
+
+
+
+    <div class="card mt-2 ">
+        <div>
+            <button class="btn btn-primary " type="submit">Submit</button>
+            <button class="btn btn-success" type="submit">Invoice</button>
+
+            <button class="btn btn-danger" type="submit">Reset</button>
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+    const addBtn = document.querySelector("#Add");
+    const templateRowElm = document.querySelector("#item_row");
+    const itemListElm = document.querySelector("#item_list");
+
+    const rowElms = {
+        product: document.querySelector("#ProductId"),
+        quantity: document.querySelector("#f_quantity"),
+        rate: document.querySelector("#f_rate"),
+        discount: document.querySelector("#f_discount"),
+        amount: document.querySelector("#f_amount")
+    };
+    rowElms.quantity.addEventListener('input', updateRowAmount);
+    rowElms.rate.addEventListener('input', updateRowAmount);
+    rowElms.discount.addEventListener('input', updateRowAmount);
+
+
+    function updateRowAmount() {
+        rowElms.amount.value = (+rowElms.quantity.value * +rowElms.rate.value) - rowElms.discount.value;
+    }
+    addBtn.addEventListener('click', e => {
+        e.preventDefault();
+        try {
+            const ProductId = rowElms.product.value;
+            if (!ProductId) throw "Item not selected";
+            const quantity = +rowElms.quantity.value;
+            if (quantity <= 0) throw "Quantity must be positive";
+            const rate = +rowElms.rate.value;
+            if (rate < 0) throw "Rate cannot be negative";
+            const discount = +rowElms.discount.value;
+
+
+            const productName = rowElms.product.options[rowElms.product.selectedIndex].textContent;
+            const cloned = templateRowElm.content.cloneNode(true);
+            cloned.querySelector('.i_quantity').textContent = quantity;
+            cloned.querySelector('.i_rate').textContent = rate;
+            cloned.querySelector('.i_name').textContent = productName;
+            cloned.querySelector('.i_discount').textContent = discount;
+            cloned.querySelector('.i_amount').textContent = (quantity * rate) - discount;
+
+            const dataHubElm = cloned.querySelector('.i_data_hub');
+            dataHubElm.dataset.ProductId = ProductId;
+            dataHubElm.dataset.quantity = quantity;
+            dataHubElm.dataset.rate = rate;
+            dataHubElm.dataset.discount = discount;
+
+            itemListElm.appendChild(cloned);
+
+            rowElms.product.value = 0;
+            rowElms.quantity.value = 0;
+            rowElms.rate.value = 0;
+            rowElms.discount.value = 0;
+        } catch (e) {
+            alert(e);
+        }
+    })
+
+</script>
+

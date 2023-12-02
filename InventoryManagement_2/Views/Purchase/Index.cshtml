@@ -1,0 +1,42 @@
+@model InventoryManagement_2.ViewModels.PurchaseSearchVm
+<form method="get" class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="cols-12 col-md-3">
+                <input type="text" class="form-control" id="searchid" name="search"/>
+            </div>
+            <div class="cols-12 col-md-3">
+                <button class="btn btn-primary" type="submit">search</button>
+                <a asp-controller="Purchase" asp-action="Add" class="btn btn-success">New Purchase</a>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="card mt-4" class="card">
+    <div class="card-body">
+    <table class="table table-stripped table-bordered table-hover">
+        <thead>
+            <th>SN</th>
+            <th>Supplier</th>
+            <th>PurchaseDate</th>
+            <th>TotalAmount</th>
+            <th>Details</th>
+        </thead>
+        <tbody>
+            @{int SN=1;
+                foreach(var x in Model.data)
+                {
+            <tr>
+                <td>@(SN++)</td>
+                <td>Suppliers.Id</td>
+                <td>@x.PurchaseDate</td>
+                <td>@x.TotalAmount</td>
+                <td><a asp-controller="PurchaseDetails" asp-action="Index" asp-route-id='@x.Id'>Details</a>
+                </td>
+            </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+</div>

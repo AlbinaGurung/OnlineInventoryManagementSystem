@@ -1,0 +1,38 @@
+﻿@model InventoryManagement_2.ViewModels.Auth.RegisterVm
+@{
+   Layout="public";
+}
+<div class="row">
+   <div class="cols 4">
+      <form method="post" class="card">
+         <div class="card-header">
+            <h1>Registration</h1>
+         </div>
+         <div class="card-body">
+
+            <div class="form-group">
+               <label asp-for="UserName"></label>
+               <input type="text" asp-for="UserName" class="form-control">
+               <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+               <label asp-for="Password"></label>
+               <input type="text" asp-for="Password" class="form-control">
+               <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+               <label asp-for="Email"></label>
+               <input type="text" asp-for="Email" class="form-control">
+               <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+         </div>
+         <div class="card-footer">
+            <button class="btn btn-success" type="submit">Register</button><br>
+            <a asp-controller="Auth" asp-action="Login" class="btn btn-primary">Back</a>
+         </div>
+         <div>
+      </form>
+   </div>
+</div>

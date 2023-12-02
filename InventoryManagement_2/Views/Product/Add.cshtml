@@ -1,0 +1,47 @@
+﻿@model InventoryManagement_2.ViewModels.ProductAddVm;
+
+
+<div class="card bg-light mb-4" style="max-width: 25rem;">
+  <div class="card-header ">Add New Item</div>
+  <div class="card-body">
+    <form method="post">
+
+      <div class="mb-3 ">
+        <label asp-for="Id"></label>
+        <input type="text" asp-for="Id" class="form-control">
+        <span asp-validation-for="Id" class="text-danger"></span>
+      </div>
+
+      <div class="mb-3 ">
+        <label asp-for="Name"></label>
+        <input type="text" asp-for="Name" class="form-control">
+        <span asp-validation-for="Name" class="text-danger"></span>
+      </div>
+
+
+      <div class="mb-3 ">
+        <label asp-for="CategoryId"></label>
+        <select asp-for="CategoryId" class="form-control" asp-items="@Model.CategoryOptionSelectList()">
+          <option value="">-- SELECT A CATEGORY --</option>
+        </select>
+      </div>
+
+      <div class="mb-3 ">
+        <label asp-for="UnitId"></label>
+        <select asp-for="UnitId" class="form-control" asp-items="@Model.UnitsOptionsSelectList()">
+          <option value="">--SELECT A UNIT</option>
+        </select>
+        <span asp-validation-for="UnitId" class="text-danger"></span>
+      </div>
+
+      <div class="mb-3">
+        <label asp-for="Price"></label>
+        <input type="number" asp-for="Price" class="form-control">
+        <span asp-validation-for="Price" class="text-danger"></span>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-success" type="submit">Save</button>
+        <a asp-controller="Product" asp-action="Index" class="btn btn-primary">Back</a>
+      </div>
+    </form>
+  </div>
