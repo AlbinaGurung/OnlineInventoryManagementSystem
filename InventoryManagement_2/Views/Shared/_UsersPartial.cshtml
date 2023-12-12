@@ -1,0 +1,28 @@
+@using InventoryManagement_2.Provider.Interface
+@inject ICurrentUserProvider _CurrentUserProvider
+@{
+    var currentUser = await _CurrentUserProvider.GetCurrentUser();
+}
+@if (@currentUser.UserType == "Admin")
+{
+   <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                  <i class="fa-regular fa-user"></i>
+                    <span>Users</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Login Screens:</h6>
+                        <a class="collapse-item" asp-controller="Auth" asp-action="Login">Login</a>
+                        <a class="collapse-item" asp-controller="Auth" asp-action="Register">Register</a>
+                        <a class="collapse-item" asp-controller="Auth" asp-action="Logout">Logout</a>
+                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                        <div class="collapse-divider"></div>
+                        
+                       
+                    </div>
+                </div>
+            </li>
+    
+}

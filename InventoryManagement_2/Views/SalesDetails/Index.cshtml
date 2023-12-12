@@ -1,0 +1,62 @@
+@model InventoryManagement_2.ViewModels.SalesDetailsSearchVm
+<form method="get" class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="cols-12 col-md-3">
+                <input type="text" class="form-control" id="searchid" name="search"/>
+            </div>
+            <div class="cols-12 col-md-3">
+                <button class="btn btn-primary" type="submit">search</button>
+                <a asp-controller="SalesInvoice" asp-action="GetInvoice" class="btn btn-success">Invoice</a>
+              
+            </div>
+            
+            
+        </div>
+    </div>
+</form>
+<div class="card mt-4" class="card">
+    <div class="card-body">
+    <table class="table table-stripped table-bordered table-hover">
+        <thead>
+            <th>SN</th>
+            <th>Product</th>
+            <th>Rate</th>
+            <th>Quantity</th>
+             <th>Discount</th>
+           
+            <th  class="text-right">TotalAmount</th>
+        </thead>
+        <tbody>
+            @{int SN=1;
+            foreach(var x in Model.data)
+            {
+            
+            <tr>
+                <td>@(SN++)</td>
+                <td>@x.Product.Name</td>
+                <td>@x.Rate</td>
+                <td>@x.Quantity</td>
+                <td>@x.Discount</td>
+                <td class="text-right">@x.TotalAmount
+                </td>
+            </tr>
+            }
+            }
+            
+        </tbody>
+        <tfoot>
+        <tr >
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            
+        </tr>
+        </tfoot>
+    </table>
+    
+</div>
+</div>

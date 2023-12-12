@@ -31,14 +31,24 @@ public class AuthManager : IAuthManager
         {
             throw new Exception("Username and Password invalid");
         }
+
         var httpContext = _httpcontextaccessor.HttpContext;
         var claims = new List<Claim>
-{
-    new("Id",user.Id.ToString())
-};
+
+        {
+        new("Id",user.Id.ToString())
+        };
+         if (user.UserType == UserTypeConstants.Admin)
+        {
+            claims.Add(new Claim(ClaimTypes.Role, "Admin"));
+            
+        }
         var ClaimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
         await httpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(ClaimsIdentity));
 
+       
+
+        
     }
     public async Task Logout()
     {

@@ -1,1 +1,43 @@
-﻿<h1>Index</h1>
+﻿@model InventoryManagement_2.ViewModels.SalesSearchVm
+<form method="get" class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="cols-12 col-md-3">
+                <input type="text" class="form-control" id="searchid" name="search" />
+            </div>
+            <div class="cols-12 col-md-9">
+                <button class="btn btn-primary" type="submit">search</button>
+                <a asp-controller="Sales" asp-action="Add" class="btn btn-success">New Sales</a>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="card mt-4" class="card">
+    <div class="card-body">
+        <table class="table table-stripped table-bordered table-hover">
+            <thead>
+                <th>SN</th>
+                <th>Customer</th>
+                <th>Date</th>
+                <th>TotalAmount</th>
+                <th>Details</th>
+            </thead>
+            <tbody>
+                @{
+                    int SN = 1;
+                    foreach (var x in Model.data)
+                    {
+                        <tr>
+                            <td>@(SN++)</td>
+                            <td>@x.CustomerName</td>
+                            <td>@x.Transactions</td>
+                            <td>@x.TotalAmount</td>
+                            <td><a asp-controller="SalesDetails" asp-action="Index" asp-route-id='@x.Id'>Details</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

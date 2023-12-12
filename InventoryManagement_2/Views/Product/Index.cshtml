@@ -30,7 +30,9 @@
                         <th>Name</th>
                         <th>Category</th>
                         <th>Unit</th>
-                        <th>Price</th>
+                        <th>Purchase Rate</th>
+                        <th>Sales Rate</th>
+                        <th>Quantity</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -44,6 +46,8 @@
                                 <td>@item.Category.Name</td>
                                 <td>@item.Unit.Name</td>
                                 <td>@item.Price</td>
+                                <td>@item.SalesPrice</td>
+                                <td>@item.Quantity</td>
                                 <td>
                                     <a asp-controller="Product" asp-route-id="@item.Id" asp-action="Edit"
                                         class="btn btn-primary">Edit</a>

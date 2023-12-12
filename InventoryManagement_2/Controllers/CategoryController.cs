@@ -5,8 +5,10 @@ using InventoryManagement_2.Data;
 using InventoryManagement_2.Models;
 using InventoryManagement_2.ViewModels;
 using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Authorization;
 namespace InventoryManagement_2.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CategoryController : Controller
     {
         private readonly ApplicationDbContext _context;

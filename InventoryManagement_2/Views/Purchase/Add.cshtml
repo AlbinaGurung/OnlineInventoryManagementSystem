@@ -1,136 +1,132 @@
 @model InventoryManagement_2.ViewModels.PurchaseAddVm
 
-<div>
-    <div class="card mb-3">
+
+
+<div class="card border-grey mb-2 w-80 ml-3">
+    <div class="card-title">
         <h1 class="text-primary bg-light ">New Purchase</h1>
     </div>
-    <div class="card mb-3 ">
-        <div class="card-body">
-            <div class="row">
 
-                <div class="mb-3">
-                    <label asp-for="SupplierId"></label>
-                    <input type="text" class="form-control-sm">
-                </div>
-                <div class="mb-3">
-                    <label for="Address">Address</label>
-                    <input type="text" class="form-control-sm">
-                </div>
-                <div class="mb-3">
-                    <label asp-for="TransactionDate"></label>
-                    <input type="Date" class="form-control-sm">
-                </div>
-                <div class="mb-3">
-                    <label for="Remarks">Remarks</label>
-                    <textarea name="" id="" cols="35" rows="4"></textarea>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-    <div class="card mb-3">
-        <div class="row">
-            <div class="col-3">
-                <label asp-for="ProductId" id="f_product"></label>
-                <select asp-for="ProductId" class="form-control-sm" asp-items="@Model.ProductsOptionsSelectList()">
-                    <option value="">--select--</option>
+    <div class="card-body">
+        <div class="mb-5">
+            <div class="mb-3">
+                <label asp-for="SupplierId" class="form-label"></label>
+                <select asp-for="SupplierId" class="form-control-lg w-100"
+                    asp-items="@Model.SuppliersOptionsSelectList()">
+                    <option value="">Select Supplier</option>
                 </select>
-                <span asp-validation-for="ProductId" class="text-danger"></span>
-                <p id='name'></p>
-            </div>
-            <div class="col-3">
-                <Label for="Rate">Rate</Label>
-                <input type="text" class="form-control-sm" id="f_rate" required>
-            </div>
-            <div class="col-3">
-                <Label for="Quantity">Quantity</Label>
-                <input type="text" class="form-control-sm" id="f_quantity" required>
-            </div>
-            <div class="col-3">
-                <Label for="Discount">Discount</Label>
-                <input type="text" class="form-control-sm" id="f_discount" required>
+                <span asp-validation-for="SupplierId" class="text-danger"></span>
             </div>
 
-        </div>
-        <div class="col-3">
-            <Label for="Amount">Amount</Label>
-            <input type="text" class="form-control-sm" id="f_amount" required>
-        </div>
-        <div class="col-3">
-            <button class="btn btn-primary " id="Add" type="button">Add</button>
-        </div>
 
-    </div>
+            <div class="form-floating mb-3">
+                <input type="Date" class="form-control" id="TransactionDate">
+                <label for="TransactionDate" class="form-label">Transaction Date</label>
 
-    <div class="card">
-        <table class="table table-stripped table-bordered table-hover">
-            <thead>
-                <th>Product Name</th>
-                <th>Qty</th>
-                <th>Rate</th>
-                <th>Discount</th>
+            </div>
 
 
-                <th>Amount</th>
-                <th>Action</th>
-
-            </thead>
-            <tbody id="item_list"></tbody>
-        </table>
-    </div>
-
-
-    </div>
-    <template id="item_row">
-        <tr>
-            <td>
-                <span class="i_name"></span>
-                <span class="i_data_hub" data-product-id="" data-quantity="" data-rate="" data-discount=""></span>
-            </td>
-            <td>
-                <span class="i_quantity"></span>
-
-            </td>
-            <td>
-                <span class="i_rate"></span>
-            </td>
-            <td>
-                <span class="i_discount"></span>
-            </td>
-
-            <td>
-                <span class="i_amount"></span>
-            </td>
-            <td>
-                <button class="btn btn-danger i_remove">
-                    Remove!
-                </button>
-            </td>
-        </tr>
-    </template>
-
-
-
-
-    <div class="card mt-2 ">
-        <div>
-            <button class="btn btn-primary " type="submit">Submit</button>
-            <button class="btn btn-success" type="submit">Invoice</button>
-
-            <button class="btn btn-danger" type="submit">Reset</button>
 
         </div>
+        <div class=" card mb-4 border border-grey border-2 ">
+            <div class="row">
+                <div class="col mb-2 mt-2">
+                    <label asp-for="ProductId" class="form-label">Product</label>
+                    <select asp-for="ProductId" class="form-control-sm" asp-items="@Model.ProductsOptionsSelectList()">
+                        <option value="">--select--</option>
+                    </select>
+                    <span asp-validation-for="ProductId" class="text-danger"></span>
 
+
+
+                    <Label for="Rate" class="form-label">Rate</Label>
+                    <input type="text" class="form-control-sm" id="f_rate" required>
+
+
+                    <Label for="Quantity" class="form-label">Quantity</Label>
+                    <input type="text" class="form-control-sm" id="f_quantity" required>
+
+
+                    <Label for="Discount" class="form-label">Discount</Label>
+                    <input type="text" class="form-control-sm" id="f_discount" required>
+
+
+
+
+                    <Label for="Amount" class="form-label">Amount</Label>
+                    <input type="text" class="form-control-sm" id="f_amount" required>
+
+                    <div class="mt-2">
+                        <button class="btn btn-primary w-100 " id="Add" type="button">Add</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <table class="table table-stripped table-bordered table-hover">
+                <thead>
+                    <th>Product Name</th>
+                    <th>Qty</th>
+                    <th>Rate</th>
+                    <th>Discount</th>
+
+
+                    <th>Amount</th>
+                    <th>Action</th>
+
+                </thead>
+                <tbody id="item_list"></tbody>
+            </table>
+            <button class="btn btn-success" style="width: 100%" type="button" id="checkout">
+                Checkout!
+            </button>
+        </div>
+
+
+        <div class="">
+            <template id="item_row">
+                <tr>
+                    <td>
+                        <span class="i_name"></span>
+                        <span class="i_data_hub" data-product-id="" data-quantity="" data-rate=""
+                            data-discount=""></span>
+                    </td>
+                    <td>
+                        <span class="i_quantity"></span>
+
+                    </td>
+                    <td>
+                        <span class="i_rate"></span>
+                    </td>
+                    <td>
+                        <span class="i_discount"></span>
+                    </td>
+
+                    <td>
+                        <span class="i_amount"></span>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger i_remove" >
+                            Remove!
+                        </button>
+                    </td>
+                </tr>
+            </template>
+        </div>
     </div>
-
 </div>
+
 <script>
     const addBtn = document.querySelector("#Add");
     const templateRowElm = document.querySelector("#item_row");
     const itemListElm = document.querySelector("#item_list");
-
+    const checkoutElm = document.querySelector("#checkout");
+    const removeElm = document.querySelector("#remove");
+    //add selectElement
+    const supplierElm = document.querySelector("#SupplierId");
+    const TransactionDateElm = document.querySelector("#TransactionDate");
     const rowElms = {
         product: document.querySelector("#ProductId"),
         quantity: document.querySelector("#f_quantity"),
@@ -146,6 +142,18 @@
     function updateRowAmount() {
         rowElms.amount.value = (+rowElms.quantity.value * +rowElms.rate.value) - rowElms.discount.value;
     }
+    rowElms.product.addEventListener('change', e => {
+        const productId = rowElms.product.value;
+        if (!productId) {
+            rowElms.rate.value = 0;
+            return;
+        }
+        fetch("/productrate/rate?ProductId=" + productId)
+            .then(res => res.json())
+            .then(data => {
+                rowElms.rate.value = data.purchaseRate;
+            });
+    });
     addBtn.addEventListener('click', e => {
         e.preventDefault();
         try {
@@ -159,6 +167,7 @@
 
 
             const productName = rowElms.product.options[rowElms.product.selectedIndex].textContent;
+
             const cloned = templateRowElm.content.cloneNode(true);
             cloned.querySelector('.i_quantity').textContent = quantity;
             cloned.querySelector('.i_rate').textContent = rate;
@@ -167,7 +176,8 @@
             cloned.querySelector('.i_amount').textContent = (quantity * rate) - discount;
 
             const dataHubElm = cloned.querySelector('.i_data_hub');
-            dataHubElm.dataset.ProductId = ProductId;
+            // dataHubElm.dataset.ProductId = ProductId;
+            dataHubElm.dataset.productId = ProductId;
             dataHubElm.dataset.quantity = quantity;
             dataHubElm.dataset.rate = rate;
             dataHubElm.dataset.discount = discount;
@@ -182,6 +192,70 @@
             alert(e);
         }
     })
+    checkoutElm.addEventListener('click', e => {
+        const userAck = confirm("Are you sure you want to submit?");
+        if (!userAck) return;
 
+        const data = [];
+
+
+        const dataHubElements = document.querySelectorAll('.i_data_hub');
+
+        for (const elm of dataHubElements) {
+            data.push({
+                ProductId: elm.dataset.productId,
+                Quantity: elm.dataset.quantity,
+                Rate: elm.dataset.rate,
+                Discount: elm.dataset.discount
+            });
+        }
+        // console.log(data);
+
+        const requestData = {
+            PurchaseDate: TransactionDateElm.value,
+            SuppliersId: supplierElm.value,
+            DetailsVm: data
+        };
+        fetch('/purchase/add', {
+            method: 'POST',
+            body: JSON.stringify(requestData),
+            headers: {
+                'Content-Type': 'application/json'
+                // Add other headers if needed
+            }
+        })//.then(res => res.json())
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json();
+            })
+            .then(x => {
+                console.log('Server Response:', x);
+                if (x.success) {
+                    alert("Purchase recorded");
+                    window.location.reload();
+                } else {
+                    alert("Error recording purchase");
+                }
+            })
+
+    });
+
+
+    document.body.addEventListener('click', e => {
+        let target = e.target;
+        if (!target.classList.contains('i_remove')) {
+            target = target.closest('.i_remove');
+        }
+        if (!target) return;
+
+        e.preventDefault();
+
+        const userAck = confirm("Are you sure you want to remove this item?");
+
+        if (!userAck) return;
+
+        target.closest('tr').remove();
+    })
 </script>
-

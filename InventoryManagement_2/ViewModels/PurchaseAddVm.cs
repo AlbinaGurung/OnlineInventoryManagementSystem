@@ -5,27 +5,21 @@ using InventoryManagement_2.Models;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace InventoryManagement_2.ViewModels;
 
 public class PurchaseAddVm
 {
      [Key]
-    public int Id{get;set;}
+    public int Id;
     public int ProductId{get;set;}
     [ForeignKey("ProductId")]
     public virtual List<Product2> Product{get;set;}
-    
-    public int CategoryId{get;set;}
-
-    [ForeignKey("CategoryId")]
-    public virtual List<Category> Categories{get;set;} 
-    public int UnitId{get;set;}
-    [ForeignKey("UnitId")]
-    public virtual List <Units> Unit{get;set;} 
-     public int SupplierId{get;set;}
+    public int SupplierId{get;set;}
     [ForeignKey("SupplierId")]
-   public DateTime TransactionDate{get;set;}
+    public virtual List<Supplier> Supplier{get;set;}
+   public DateOnly TransactionDate{get;set;}
    [ForeignKey ("TransactionDate")]
     public int PurchaseId{get;set;}
     [ForeignKey("PurchaseId")]
@@ -35,24 +29,8 @@ public class PurchaseAddVm
     public decimal quantity{get;set;}
     public decimal TotalAmount{get;set;}
     public PurchaseDetails data{get;set;}
-     public SelectList CategoryOptionSelectList()
-    {
-        return new SelectList(
-            Categories, // List of items
-            nameof(Category.Id), // Which Property to use for Value 
-            nameof(Category.Name), // Which property to use for display
-           CategoryId // Selected value
-        );
-    }
-     public SelectList UnitsOptionsSelectList()
-    {
-        return new SelectList(
-            Unit, // List of items
-            nameof(Units.Id), // Which Property to use for Value 
-            nameof(Units.Name), // Which property to use for display
-           UnitId // Selected value
-        );
-    }
+     
+    
      public SelectList ProductsOptionsSelectList()
     {
         return new SelectList(
@@ -60,6 +38,15 @@ public class PurchaseAddVm
             nameof(Product2.Id), // Which Property to use for Value 
             nameof(Product2.Name), // Which property to use for display
            ProductId // Selected value
+        );
+    }
+     public SelectList SuppliersOptionsSelectList()
+    {
+        return new SelectList(
+            Supplier, // List of items
+            nameof(Models.Supplier.Id), // Which Property to use for Value 
+            nameof(Models.Supplier.Name), // Which property to use for display
+           SupplierId // Selected value
         );
     }
     

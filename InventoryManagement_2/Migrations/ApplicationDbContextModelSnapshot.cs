@@ -92,6 +92,12 @@ namespace InventoryManagement_2.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
+                    b.Property<decimal>("Quantity")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("SalesPrice")
+                        .HasColumnType("int");
+
                     b.Property<int>("UnitId")
                         .HasColumnType("int");
 
@@ -112,8 +118,8 @@ namespace InventoryManagement_2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("PurchaseDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly>("PurchaseDate")
+                        .HasColumnType("date");
 
                     b.Property<int>("SuppliersId")
                         .HasColumnType("int");
@@ -136,13 +142,16 @@ namespace InventoryManagement_2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Discount")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
                     b.Property<int>("PurchaseId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PurchaseId1")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Rate")
@@ -151,21 +160,16 @@ namespace InventoryManagement_2.Migrations
                     b.Property<decimal>("TotalAmount")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("UnitId")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("quantity")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
-
                     b.HasIndex("ProductId");
 
                     b.HasIndex("PurchaseId");
 
-                    b.HasIndex("UnitId");
+                    b.HasIndex("PurchaseId1");
 
                     b.ToTable("PurchaseDetails");
                 });
@@ -179,7 +183,6 @@ namespace InventoryManagement_2.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
                     b.Property<string>("CustomerName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("TotalAmount")
@@ -201,11 +204,14 @@ namespace InventoryManagement_2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<decimal>("NetAmount")
+                    b.Property<decimal>("Discount")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
+
+                    b.Property<long>("Quantity")
+                        .HasColumnType("bigint");
 
                     b.Property<decimal>("Rate")
                         .HasColumnType("decimal(18,2)");
@@ -213,11 +219,8 @@ namespace InventoryManagement_2.Migrations
                     b.Property<long>("SalesId")
                         .HasColumnType("bigint");
 
-                    b.Property<decimal>("discount")
+                    b.Property<decimal>("TotalAmount")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<long>("quantity")
-                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -265,6 +268,9 @@ namespace InventoryManagement_2.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -322,12 +328,6 @@ namespace InventoryManagement_2.Migrations
 
             modelBuilder.Entity("InventoryManagement_2.Models.PurchaseDetails", b =>
                 {
-                    b.HasOne("InventoryManagement_2.Models.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
                     b.HasOne("InventoryManagement_2.Models.Product2", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
@@ -340,19 +340,13 @@ namespace InventoryManagement_2.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("InventoryManagement_2.Models.Units", "Unit")
-                        .WithMany()
-                        .HasForeignKey("UnitId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Category");
+                    b.HasOne("InventoryManagement_2.Models.Purchase", null)
+                        .WithMany("PurchaseDetails")
+                        .HasForeignKey("PurchaseId1");
 
                     b.Navigation("Product");
 
                     b.Navigation("Purchase");
-
-                    b.Navigation("Unit");
                 });
 
             modelBuilder.Entity("InventoryManagement_2.Models.SalesDetails", b =>
@@ -391,6 +385,11 @@ namespace InventoryManagement_2.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Unit");
+                });
+
+            modelBuilder.Entity("InventoryManagement_2.Models.Purchase", b =>
+                {
+                    b.Navigation("PurchaseDetails");
                 });
 
             modelBuilder.Entity("InventoryManagement_2.Models.Sales", b =>

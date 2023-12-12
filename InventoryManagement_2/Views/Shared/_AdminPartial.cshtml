@@ -1,0 +1,19 @@
+@using InventoryManagement_2.Provider.Interface
+@inject ICurrentUserProvider _CurrentUserProvider
+@{
+    var currentUser = await _CurrentUserProvider.GetCurrentUser();
+}
+@if (@currentUser.UserType == "Admin")
+{
+    <li class="nav-item">
+    <a asp-controller="Purchase" asp-action="Add" class="nav-link">Add Purchase</a>
+</li>
+    <li class="nav-item">
+    <a asp-controller="Purchase" asp-action="Index" class="nav-link">Purchase Details</a>
+</li>
+
+    <li class="nav-item">
+    <a asp-controller="Supplier" asp-action="Index" class="nav-link">Suppliers</a>
+</li>
+    
+}

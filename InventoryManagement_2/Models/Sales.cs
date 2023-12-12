@@ -10,7 +10,7 @@ namespace InventoryManagement_2.Models
         public long Id { get; set; }
         public DateTime Transactions { get; set; }
 
-        public String CustomerName { get; set; }
+        public String? CustomerName { get; set; }
 
         public decimal TotalAmount { get; set; }
         

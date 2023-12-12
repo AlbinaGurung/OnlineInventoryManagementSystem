@@ -6,7 +6,9 @@ public class ProductDisplayVm
 
     public int Id { get; set; }
     public string Name { get; set; }
+    public decimal  Quantity{get;set;}
     public int UnitId{get;set;}
+    
     public List<Units> Unit { get; set; }
     public int CategoryId { get; set; }
     [ValidateNever]

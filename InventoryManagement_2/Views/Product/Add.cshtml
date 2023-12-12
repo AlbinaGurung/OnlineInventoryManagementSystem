@@ -35,9 +35,14 @@
       </div>
 
       <div class="mb-3">
-        <label asp-for="Price"></label>
+        <label asp-for="Price">Purchase Rate</label>
         <input type="number" asp-for="Price" class="form-control">
         <span asp-validation-for="Price" class="text-danger"></span>
+      </div>
+      <div class="mb-3">
+        <label asp-for="SalesPrice">Sales Rate</label>
+        <input type="number" asp-for="SalesPrice" class="form-control">
+        <span asp-validation-for="SalesPrice" class="text-danger"></span>
       </div>
       <div class="card-footer">
         <button class="btn btn-success" type="submit">Save</button>

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Mini-Mart</title>
 
     <!-- Custom fonts for this template-->
     <link href="~/AdminAssets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -19,6 +19,8 @@
 
     <!-- Custom styles for this template-->
     <link href="~/AdminAssets/css/sb-admin-2.min.css" rel="stylesheet">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 </head>
 
@@ -35,7 +37,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Mini Mart <sup>2</sup></div>
             </a>
 
             <!-- Divider -->
@@ -91,15 +93,26 @@
                 </div> 
             </li>*@
 
-            <li class="nav-item">
+            @*<li class="nav-item">
 
              <a asp-controller="Purchase" asp-action="Index" class="nav-link">Purchases</a>
             </li>
-            <li class="nav-item">
-                <a asp-controller="Sales" asp-action="Index" class="nav-link">Sales</a>
+            
+            
+            
+             <li class="nav-item">
+                <a asp-controller="Supplier" asp-action="Index" class="nav-link">Suppliers</a>
+            </li>
+             <li class="nav-item">
+                <a asp-controller="Suppliers" asp-action="Index" class="nav-link">Users</a>
+            </li> *@
+            <partial name="_AdminPartial"></partial>
+             <li class="nav-item">
+               
+                <a asp-controller="Sales" asp-action="Add" class="nav-link">Add Sales</a>
             </li>
             <li class="nav-item">
-                <a asp-controller="Product" asp-action="Index" class="nav-link">Products</a>
+                <a asp-controller="Sales" asp-action="Index" class="nav-link">SalesDetails</a>
             </li>
             <li class="nav-item">
                 <a asp-controller="Category" asp-action="Index" class="nav-link">Categories</a>
@@ -107,6 +120,13 @@
             <li class="nav-item">
                 <a asp-controller="Units" asp-action="Index" class="nav-link">Units</a>
             </li>
+            <li class="nav-item">
+                <a asp-controller="Product" asp-action="Index" class="nav-link">Products</a>
+            </li>
+            
+            
+
+
 
 
 
@@ -119,25 +139,26 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <partial name="_UsersPartial"></partial>
+            @* <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
+                  <i class="fa-regular fa-user"></i>
+                    <span>Users</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
+                        <a class="collapse-item" asp-controller="Auth" asp-action="Login">Login</a>
+                        <a class="collapse-item" asp-controller="Auth" asp-action="Register">Register</a>
+                        <a class="collapse-item" asp-controller="Auth" asp-action="Logout">Logout</a>
                         <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
                         <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                        
+                       
                     </div>
                 </div>
-            </li>
+            </li> *@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">

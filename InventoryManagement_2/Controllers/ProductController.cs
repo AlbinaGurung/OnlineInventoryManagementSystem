@@ -8,9 +8,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Transactions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace InventoryManagement_2.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -27,14 +29,7 @@ namespace InventoryManagement_2.Controllers
             if (!String.IsNullOrEmpty(search))
             {
                 products.data = await _context.Units.Where(x => x.Name.Contains(search)).Include(x => x.Category).Include(x => x.Unit).ToListAsync();
-                // products.DisplayData = await _context.Units.Where(x => string.IsNullOrEmpty(search) || x.Name.Contains(search))
-                // .Select(x => new ProductDisplayVm()
-                // {
 
-                //     Name = x.Name,
-                //     UnitId=x.UnitId,
-                //     CategoryId=x.CategoryId
-                // }).ToListAsync();
             }
             else
             {
@@ -64,7 +59,9 @@ namespace InventoryManagement_2.Controllers
                 {
                     Id = vm.Id,
                     Price = vm.Price,
+                    SalesPrice = vm.SalesPrice,
                     Name = vm.Name,
+                    Quantity = 0,
                     CategoryId = vm.CategoryId,
                     UnitId = vm.UnitId
                 };
@@ -90,7 +87,14 @@ namespace InventoryManagement_2.Controllers
                     throw new Exception("Item Not Found");
                 }
                 //giving that found item to the view model to display it to the page
-                var vm = new ProductEditVm() { Name = item.Name, Price = item.Price, CategoryId = item.CategoryId, UnitId = item.UnitId };
+                var vm = new ProductEditVm()
+                {
+                    Name = item.Name,
+                    Price = item.Price,
+                    SalesPrice = item.SalesPrice,
+                    CategoryId = item.CategoryId,
+                    UnitId = item.UnitId
+                };
                 vm.Categories = await _context.Categories.ToListAsync();
                 vm.Unit = await _context.Unit.ToListAsync();
                 return View(vm);
@@ -115,7 +119,9 @@ namespace InventoryManagement_2.Controllers
                 }
                 item.Name = vm.Name;
                 item.Price = vm.Price;
+                item.SalesPrice = vm.SalesPrice;
                 item.UnitId = vm.UnitId;
+                item.Quantity = item.Quantity;
                 item.CategoryId = vm.CategoryId;
 
                 _context.Units.Update(item);
@@ -132,7 +138,7 @@ namespace InventoryManagement_2.Controllers
             return View();
         }
 
-     
+
         public async Task<IActionResult> Delete(int id)
         {
             var item = await _context.Units.Where(x => x.Id == id).FirstOrDefaultAsync();

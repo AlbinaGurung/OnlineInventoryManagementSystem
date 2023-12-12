@@ -7,7 +7,10 @@
             </div>
             <div class="cols-12 col-md-3">
                 <button class="btn btn-primary" type="submit">search</button>
-                <a href="" class="btn btn-success">New Purchase</a>
+                 @{
+                    var purchaseId=Model.PurchaseId;
+                 }
+                <a asp-controller="PurchaseDetails" asp-action="Invoice" asp-route-id="@purchaseId" class="btn btn-success" >Invoice</a>     
             </div>
         </div>
     </div>
@@ -18,10 +21,10 @@
         <thead>
             <th>SN</th>
             <th>Product</th>
-            <th>Category</th>
-            <th>Unit</th>
+            
              <th>Rate</th>
             <th>Quantity</th>
+            <th>Discount</th>
             <th  class="text-right">TotalAmount</th>
         </thead>
         <tbody>
@@ -32,10 +35,10 @@
             <tr>
                 <td>@(SN++)</td>
                 <td>@x.Product.Name</td>
-                <td>@x.Category.Name</td>
-                <td>@x.Unit.Name</td>
+                
                 <td>@x.Rate</td>
                 <td>@x.quantity</td>
+                <td>@x.Discount</td>
                 <td class="text-right">@x.TotalAmount
                 </td>
             </tr>
@@ -51,7 +54,8 @@
             <td></td>
             <td></td>
             <td></td>
-            <td  class="text-right">120</td>
+            
+            
         </tr>
         </tfoot>
     </table>

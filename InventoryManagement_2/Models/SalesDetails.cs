@@ -8,15 +8,15 @@ namespace InventoryManagement_2.Models
     {
         [Key]
         public long Id { get; set; }
-        public long quantity { get; set; }
+        public long Quantity { get; set; }
 
         public decimal Rate { get; set; }
-        public decimal NetAmount { get; set; }
-        public decimal discount { get; set; }
+        public decimal TotalAmount { get; set; }
+        public decimal Discount { get; set; }
 
 
       
-        public long SalesId { get; set; }
+        public long  SalesId { get; set; }
         public virtual Sales Sales { get; set; }
 
         public int ProductId { get; set; }

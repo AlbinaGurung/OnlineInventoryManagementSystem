@@ -40,7 +40,7 @@ public class AuthController : Controller
         {
             await _authManager.Login(vm.Username, vm.Password);
            notification.Success("Successfully Loggedin");
-            return RedirectToAction("Index", "Product");
+            return RedirectToAction("Index", "Home");
         }
         catch (Exception e)
         {

@@ -30,26 +30,13 @@ namespace InventoryManagement_2.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            
-            
-
             modelBuilder.Entity<PurchaseDetails>()
-                  .HasOne(e => e.Product)
-                  .WithMany()
-                  .HasForeignKey(e => e.ProductId)
-                  .OnDelete(DeleteBehavior.NoAction);
-
-            modelBuilder.Entity<PurchaseDetails>()
-                .HasOne(e => e.Category)
+                .HasOne(e => e.Product)
                 .WithMany()
-                .HasForeignKey(e => e.CategoryId)
+                .HasForeignKey(e => e.ProductId)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            modelBuilder.Entity<PurchaseDetails>()
-                .HasOne(e => e.Unit)
-                .WithMany()
-                .HasForeignKey(e => e.UnitId)
-                .OnDelete(DeleteBehavior.NoAction);
+
 
             modelBuilder.Entity<PurchaseDetails>()
                 .HasOne(e => e.Purchase)

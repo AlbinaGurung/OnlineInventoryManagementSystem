@@ -1122,3 +1122,4 @@
 /Users/albinagurung/Desktop/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/obj/Debug/net8.0/InventoryManagement_2.pdb
 /Users/albinagurung/Desktop/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/obj/Debug/net8.0/InventoryManagement_2.genruntimeconfig.cache
 /Users/albinagurung/Desktop/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/obj/Debug/net8.0/ref/InventoryManagement_2.dll
+/Users/albinagurung/Desktop/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/obj/Debug/net8.0/InventoryManagement_2.sourcelink.json

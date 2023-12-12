@@ -1,0 +1,250 @@
+@model InventoryManagement_2.ViewModels.SalesAddVm
+
+<div>
+    <div class="card mb-3">
+        <h1 class="text-primary bg-light ">New Sales</h1>
+    </div>
+    <div class="card mb-3 ">
+        <div class="card-body">
+            <div class="row">
+
+                <div class="mb-3 ">
+                    <label for="CustomerName"></label>
+                    <input type="text" class="form-control-sm" id="CustomerName">
+                </div>
+
+                <div class="mb-3">
+                    <label for="Transactions">Date</label>
+                    <input type="Date" class="form-control-sm" id="Transactions">
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="card mb-3">
+        <div class="row">
+            <div class="col-3">
+                <label>Product</label>
+                <select id="ProductId" class="form-control-sm" asp-items="@Model.ProductsOptionsSelectList()">
+                    <option value="">--select--</option>
+                </select>
+
+                <p id='name'></p>
+            </div>
+            <div class="col-3">
+                <Label for="Rate">Rate</Label>
+                <input type="text" class="form-control-sm" id="f_rate" required>
+            </div>
+            <div class="col-3">
+                <Label for="quantity">Quantity</Label>
+                <input type="text" class="form-control-sm" id="f_quantity" required>
+            </div>
+            <div class="col-3">
+                <Label for="discount">Discount</Label>
+                <input type="text" class="form-control-sm" id="f_discount" required>
+            </div>
+
+        </div>
+        <div class="col-3">
+            <Label for="TotalAmount">Amount</Label>
+            <input type="text" class="form-control-sm" id="f_amount" required>
+        </div>
+        <div class="col-3">
+            <button class="btn btn-primary w-100 " id="Add" type="button">Add</button>
+        </div>
+
+    </div>
+
+    <div class="card">
+        <table class="table table-stripped table-bordered table-hover">
+            <thead>
+                <th>Product Name</th>
+                <th>Qty</th>
+                <th>Rate</th>
+                <th>Discount</th>
+                <th>Amount</th>
+                <th>Action</th>
+            </thead>
+            <tbody id="item_list"></tbody>
+        </table>
+        <button class="btn btn-success" style="width: 100%" type="button" id="checkout">
+            Checkout!
+        </button>
+    </div>
+
+
+</div>
+<template id="item_row">
+    <tr>
+        <td>
+            <span class="i_name"></span>
+            <span class="i_data_hub" data-product-id="" data-quantity="" data-rate="" data-discount=""></span>
+        </td>
+        <td>
+            <span class="i_quantity"></span>
+
+        </td>
+        <td>
+            <span class="i_rate"></span>
+        </td>
+        <td>
+            <span class="i_discount"></span>
+        </td>
+
+        <td>
+            <span class="i_amount"></span>
+        </td>
+        <td>
+            <button class="btn btn-danger i_remove" >
+                Remove!
+            </button>
+        </td>
+    </tr>
+</template>
+</div>
+<script>
+    const addBtn = document.querySelector("#Add");
+    const templateRowElm = document.querySelector("#item_row");
+    const itemListElm = document.querySelector("#item_list");
+    const checkoutElm = document.querySelector("#checkout");
+    const removeElm = document.querySelector("#remove");
+    const TransactionDateElm = document.querySelector("#Transactions");
+    const CustomerNameElm = document.querySelector("#CustomerName");
+    const rowElms = {
+        product: document.querySelector("#ProductId"),
+        quantity: document.querySelector("#f_quantity"),
+        rate: document.querySelector("#f_rate"),
+        discount: document.querySelector("#f_discount"),
+        amount: document.querySelector("#f_amount")
+    };
+    rowElms.quantity.addEventListener('input', updateRowAmount);
+    rowElms.rate.addEventListener('input', updateRowAmount);
+    rowElms.discount.addEventListener('input', updateRowAmount);
+
+
+    function updateRowAmount() {
+        rowElms.amount.value = (+rowElms.quantity.value * +rowElms.rate.value) - rowElms.discount.value;
+    }
+    rowElms.product.addEventListener('change', e => {
+        const productId = rowElms.product.value;
+        if (!productId) {
+            rowElms.rate.value = 0;
+            return;
+        }
+        fetch("/Productrate/rate?ProductId=" + productId)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (!data) {
+                    throw new Error('Empty response or invalid JSON');
+                }
+                rowElms.rate.value = data.salesRate;
+            });
+    });
+    addBtn.addEventListener('click', e => {
+        e.preventDefault();
+        try {
+            const ProductId = rowElms.product.value;
+            if (!ProductId) throw "Item not selected";
+            const quantity = +rowElms.quantity.value;
+            if (quantity <= 0) throw "Quantity must be positive";
+            const rate = +rowElms.rate.value;
+            if (rate < 0) throw "Rate cannot be negative";
+            const discount = +rowElms.discount.value;
+
+
+            const productName = rowElms.product.options[rowElms.product.selectedIndex].textContent;
+            const cloned = templateRowElm.content.cloneNode(true);
+            cloned.querySelector('.i_quantity').textContent = quantity;
+            cloned.querySelector('.i_rate').textContent = rate;
+            cloned.querySelector('.i_name').textContent = productName;
+            cloned.querySelector('.i_discount').textContent = discount;
+            cloned.querySelector('.i_amount').textContent = (quantity * rate) - discount;
+
+            const dataHubElm = cloned.querySelector('.i_data_hub');
+            dataHubElm.dataset.productId = ProductId;
+            dataHubElm.dataset.quantity = quantity;
+            dataHubElm.dataset.rate = rate;
+            dataHubElm.dataset.discount = discount;
+
+            itemListElm.appendChild(cloned);
+
+            rowElms.product.value = 0;
+            rowElms.quantity.value = 0;
+            rowElms.rate.value = 0;
+            rowElms.discount.value = 0;
+        } catch (e) {
+            alert(e);
+        }
+    })
+    checkoutElm.addEventListener('click', e => {
+        const userAck = confirm("Are you sure you want to submit?");
+        if (!userAck) return;
+
+        const data = [];
+
+        const dataHubElements = document.querySelectorAll('.i_data_hub');
+
+        for (const elm of dataHubElements) {
+            data.push({
+                ProductId: elm.dataset.productId,
+                Quantity: elm.dataset.quantity,
+                Discount: elm.dataset.discount,
+                Rate: elm.dataset.rate,
+            });
+        }
+        console.log(data);
+
+        const requestData = {
+            Transactions: TransactionDateElm.value,
+            CustomerName: CustomerNameElm.value,
+            DetailsVm: data
+        };
+
+
+        fetch('/sales/add', {
+            method: 'POST',
+            body: JSON.stringify(requestData),
+            headers: {
+                'Content-Type': 'application/json'
+                // Add other headers if needed
+            }
+        })//.then(res => res.json())
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json();
+            })
+            .then(x => {
+                console.log('Server Response:', x);
+                if (x.success) {
+                    alert("sales recorded");
+                    window.location.reload();
+                } else {
+                    alert("Error recording purchase");
+                }
+            })
+
+    });
+    document.body.addEventListener('click', e => {
+        let target = e.target;
+        if (!target.classList.contains('i_remove')) {
+            target = target.closest('.i_remove');
+        }
+        if (!target) return;
+
+        e.preventDefault();
+
+        const userAck = confirm("Are you sure you want to remove this item?");
+
+        if (!userAck) return;
+
+        target.closest('tr').remove();
+    })
+
+
+</script>

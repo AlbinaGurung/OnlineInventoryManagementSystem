@@ -6,4 +6,5 @@ public class PurchaseDetailsSearchVm
 {
 public string? search{get;set;}
 public List<PurchaseDetails> data;
+public int PurchaseId{get;set;}
 }

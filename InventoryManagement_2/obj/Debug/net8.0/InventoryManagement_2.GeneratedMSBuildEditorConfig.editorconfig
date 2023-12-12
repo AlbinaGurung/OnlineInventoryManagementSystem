@@ -98,8 +98,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHVyY2hhc2VEZXRhaWxzL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/albinagurung/Desktop/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/PurchaseDetails/Invoice.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHVyY2hhc2VEZXRhaWxzL0ludm9pY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Desktop/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Sales/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2FsZXMvQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/albinagurung/Desktop/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Sales/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2FsZXMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Desktop/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/SalesDetails/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2FsZXNEZXRhaWxzL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/albinagurung/Desktop/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Shared/Error.cshtml]
@@ -110,8 +122,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL3B1YmxpYy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/albinagurung/Desktop/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Shared/_AdminPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19BZG1pblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/albinagurung/Desktop/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Desktop/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Shared/_UsersPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Vc2Vyc1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/albinagurung/Desktop/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Shared/_ValidationScriptsPartial.cshtml]
@@ -120,6 +140,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/albinagurung/Desktop/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Stock/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3RvY2svSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Desktop/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Supplier/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3VwcGxpZXIvQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/albinagurung/Desktop/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Supplier/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3VwcGxpZXIvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/albinagurung/Desktop/OnlineInventoryManagementSystem-master-2/InventoryManagement_2/Views/Units/Add.cshtml]

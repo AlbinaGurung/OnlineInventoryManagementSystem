@@ -8,6 +8,7 @@
             <div class="cols-12 col-md-3">
                 <button class="btn btn-primary" type="submit">search</button>
                 <a asp-controller="Purchase" asp-action="Add" class="btn btn-success">New Purchase</a>
+                     
             </div>
         </div>
     </div>
@@ -28,7 +29,7 @@
                 {
             <tr>
                 <td>@(SN++)</td>
-                <td>Suppliers.Id</td>
+                <td>@x.Suppliers.Name</td>
                 <td>@x.PurchaseDate</td>
                 <td>@x.TotalAmount</td>
                 <td><a asp-controller="PurchaseDetails" asp-action="Index" asp-route-id='@x.Id'>Details</a>
